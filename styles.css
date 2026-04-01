@@ -1,0 +1,156 @@
+:root {
+  --bg: #000000;
+  --bg-dark: #8a8a8a;
+  --panel: #a2a2a2;
+  --text: #090909;
+  --accent: #310019;
+  --accent-soft: #212121;
+  --border: #252525;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.page {
+  width: min(960px, 92%);
+  margin: 1.5rem auto 2rem;
+}
+
+.screen-block {
+  background: var(--panel);
+  border: 3px solid var(--border);
+  margin-bottom: 1rem;
+  padding: 1rem 1.2rem;
+  box-shadow: 4px 4px 0 var(--accent-soft);
+}
+
+.hero {
+  text-align: center;
+  padding: 1.6rem 1.2rem;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.15rem 0.55rem;
+  border: 2px solid var(--border);
+  font-size: 0.8rem;
+  background: var(--bg-dark);
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+h1 {
+  margin-bottom: 0.35rem;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem);
+}
+
+h2 {
+  font-size: 1.1rem;
+  border-bottom: 2px dashed var(--accent-soft);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.8rem;
+}
+
+.subtitle,
+.hero-note {
+  margin: 0.3rem 0;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  border: 2px solid var(--border);
+  padding: 0.28rem 0.6rem;
+  background: var(--bg-dark);
+  font-size: 0.9rem;
+}
+
+.nav a:hover,
+.nav a:focus {
+  background: var(--accent-soft);
+  color: #fff;
+}
+
+.info-list,
+.simple-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.info-list li,
+.simple-list li {
+  margin-bottom: 0.35rem;
+}
+
+.info-list span {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.8rem;
+}
+
+.card {
+  border: 2px solid var(--border);
+  padding: 0.8rem;
+  background: var(--bg-dark);
+}
+
+.card p {
+  margin: 0.45rem 0;
+}
+
+.hackathon-meta {
+  margin: 0.2rem 0;
+  font-size: 0.92rem;
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0.6rem auto;
+  border: 1px solid var(--border);
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 560px) {
+  .page {
+    width: 95%;
+    margin-top: 1rem;
+  }
+
+  .screen-block {
+    padding: 0.85rem;
+  }
+}
