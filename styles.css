@@ -1,11 +1,11 @@
 :root {
   --bg: #000000;
-  --bg-dark: #b5b5b5;
-  --panel: #cccccc;
+  --bg-dark: #d3d3d3;
+  --panel: #e1e1e1;
   --text: #090909;
-  --accent: #310019;
-  --accent-soft: #212121;
-  --border: #252525;
+  --accent: #460005;
+  --accent-soft: #565656;
+  --border: #707070;
 }
 
 * {
@@ -18,11 +18,351 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.55;
+  overflow-x: hidden;
 }
 
 .page {
+  position: relative;
+  z-index: 1;
   width: min(960px, 92%);
   margin: 1.5rem auto 2rem;
+}
+
+.floating-cubes {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  perspective: 800px;
+}
+
+.cube {
+  --size: 22px;
+  --rot-0: 0deg;
+  --rot-1: 12deg;
+  --rot-2: -10deg;
+  --dx-1: 14px;
+  --dy-1: -20px;
+  --dx-2: -12px;
+  --dy-2: -12px;
+  position: absolute;
+  width: calc(var(--size) * 2);
+  height: calc(var(--size) * 2);
+  filter: drop-shadow(8px 10px 0 rgba(0, 0, 0, 0.25));
+  animation: cube-float 14s ease-in-out infinite;
+}
+
+.cube:nth-child(1) {
+  top: 7%;
+  left: 6%;
+  --size: 12px;
+  --rot-0: -8deg;
+  --rot-1: 18deg;
+  --rot-2: -16deg;
+  animation-duration: 12s;
+}
+
+.cube:nth-child(2) {
+  top: 13%;
+  left: 78%;
+  --size: 30px;
+  --rot-0: 10deg;
+  --rot-1: -14deg;
+  --rot-2: 20deg;
+  animation-duration: 17s;
+  animation-delay: -2s;
+}
+
+.cube:nth-child(3) {
+  top: 26%;
+  left: 21%;
+  --size: 9px;
+  --rot-0: 22deg;
+  --rot-1: -12deg;
+  --rot-2: 8deg;
+  animation-duration: 15s;
+  animation-delay: -5s;
+}
+
+.cube:nth-child(4) {
+  top: 34%;
+  left: 86%;
+  --size: 26px;
+  --rot-0: -18deg;
+  --rot-1: 6deg;
+  --rot-2: -24deg;
+  animation-duration: 13s;
+  animation-delay: -4s;
+}
+
+.cube:nth-child(5) {
+  top: 52%;
+  left: 8%;
+  --size: 34px;
+  --rot-0: 4deg;
+  --rot-1: 24deg;
+  --rot-2: -14deg;
+  animation-duration: 18s;
+  animation-delay: -1s;
+}
+
+.cube:nth-child(6) {
+  top: 58%;
+  left: 68%;
+  --size: 11px;
+  --rot-0: -22deg;
+  --rot-1: -6deg;
+  --rot-2: 14deg;
+  animation-duration: 11s;
+  animation-delay: -3s;
+}
+
+.cube:nth-child(7) {
+  top: 73%;
+  left: 23%;
+  --size: 32px;
+  --rot-0: 14deg;
+  --rot-1: -20deg;
+  --rot-2: 8deg;
+  animation-duration: 16s;
+  animation-delay: -6s;
+}
+
+.cube:nth-child(8) {
+  top: 5%;
+  left: 50%;
+  --size: 8px;
+  --rot-0: -10deg;
+  --rot-1: 16deg;
+  --rot-2: -8deg;
+  animation-duration: 10s;
+  animation-delay: -7s;
+}
+
+.cube:nth-child(9) {
+  top: 21%;
+  left: 57%;
+  --size: 13px;
+  --rot-0: 18deg;
+  --rot-1: 2deg;
+  --rot-2: -20deg;
+  animation-duration: 12s;
+  animation-delay: -8s;
+}
+
+.cube:nth-child(10) {
+  top: 39%;
+  left: 12%;
+  --size: 28px;
+  --rot-0: -4deg;
+  --rot-1: 20deg;
+  --rot-2: -26deg;
+  animation-duration: 19s;
+  animation-delay: -5s;
+}
+
+.cube:nth-child(11) {
+  top: 47%;
+  left: 44%;
+  --size: 10px;
+  --rot-0: 24deg;
+  --rot-1: -14deg;
+  --rot-2: 12deg;
+  animation-duration: 9s;
+  animation-delay: -2s;
+}
+
+.cube:nth-child(12) {
+  top: 69%;
+  left: 84%;
+  --size: 15px;
+  --rot-0: -16deg;
+  --rot-1: 8deg;
+  --rot-2: -12deg;
+  animation-duration: 14s;
+  animation-delay: -7s;
+}
+
+.cube:nth-child(13) {
+  top: 83%;
+  left: 57%;
+  --size: 12px;
+  --rot-0: 6deg;
+  --rot-1: -18deg;
+  --rot-2: 22deg;
+  animation-duration: 13s;
+  animation-delay: -4s;
+}
+
+.cube:nth-child(14) {
+  top: 88%;
+  left: 6%;
+  --size: 36px;
+  --rot-0: -12deg;
+  --rot-1: 14deg;
+  --rot-2: -6deg;
+  animation-duration: 17s;
+  animation-delay: -10s;
+}
+
+.cube:nth-child(15) {
+  top: 15%;
+  left: 34%;
+  --size: 7px;
+  --rot-0: 20deg;
+  --rot-1: -10deg;
+  --rot-2: 16deg;
+  animation-duration: 8s;
+  animation-delay: -3s;
+}
+
+.cube:nth-child(16) {
+  top: 30%;
+  left: 63%;
+  --size: 19px;
+  --rot-0: -20deg;
+  --rot-1: 4deg;
+  --rot-2: -18deg;
+  animation-duration: 21s;
+  animation-delay: -6s;
+}
+
+.cube:nth-child(17) {
+  top: 41%;
+  left: 92%;
+  --size: 9px;
+  --rot-0: 12deg;
+  --rot-1: 22deg;
+  --rot-2: -8deg;
+  animation-duration: 11s;
+  animation-delay: -9s;
+}
+
+.cube:nth-child(18) {
+  top: 55%;
+  left: 31%;
+  --size: 10px;
+  --rot-0: -6deg;
+  --rot-1: 16deg;
+  --rot-2: -22deg;
+  animation-duration: 18s;
+  animation-delay: -12s;
+}
+
+.cube:nth-child(19) {
+  top: 64%;
+  left: 52%;
+  --size: 8px;
+  --rot-0: 18deg;
+  --rot-1: -4deg;
+  --rot-2: 24deg;
+  animation-duration: 9s;
+  animation-delay: -4s;
+}
+
+.cube:nth-child(20) {
+  top: 77%;
+  left: 75%;
+  --size: 20px;
+  --rot-0: -24deg;
+  --rot-1: 10deg;
+  --rot-2: -10deg;
+  animation-duration: 15s;
+  animation-delay: -11s;
+}
+
+.cube:nth-child(21) {
+  top: 82%;
+  left: 40%;
+  --size: 6px;
+  --rot-0: 14deg;
+  --rot-1: -22deg;
+  --rot-2: 10deg;
+  animation-duration: 7s;
+  animation-delay: -2s;
+}
+
+.cube:nth-child(22) {
+  top: 9%;
+  left: 90%;
+  --size: 33px;
+  --rot-0: -8deg;
+  --rot-1: 18deg;
+  --rot-2: -16deg;
+  animation-duration: 20s;
+  animation-delay: -13s;
+}
+
+.cube:nth-child(23) {
+  top: 92%;
+  left: 89%;
+  --size: 11px;
+  --rot-0: 26deg;
+  --rot-1: -12deg;
+  --rot-2: 6deg;
+  animation-duration: 10s;
+  animation-delay: -6s;
+}
+
+.cube:nth-child(24) {
+  top: 3%;
+  left: 24%;
+  --size: 23px;
+  --rot-0: -14deg;
+  --rot-1: 2deg;
+  --rot-2: -24deg;
+  animation-duration: 16s;
+  animation-delay: -8s;
+}
+
+.cube .face {
+  position: absolute;
+  inset: 0;
+}
+
+.cube .top {
+  background: rgba(240, 240, 240, 0.45);
+  clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
+}
+
+.cube .left {
+  background: rgba(170, 170, 170, 0.42);
+  clip-path: polygon(0% 25%, 50% 50%, 50% 100%, 0% 75%);
+}
+
+.cube .right {
+  background: rgba(95, 95, 95, 0.52);
+  clip-path: polygon(100% 25%, 50% 50%, 50% 100%, 100% 75%);
+}
+
+.floating-cubes .cube:is(:nth-child(1), :nth-child(4), :nth-child(10), :nth-child(7) , :nth-child(8), :nth-child(12), :nth-child(16), :nth-child(19), :nth-child(23)) .face {
+  background: transparent;
+}
+
+.floating-cubes .cube:is(:nth-child(1), :nth-child(4), :nth-child(10), :nth-child(7), :nth-child(8), :nth-child(12), :nth-child(16), :nth-child(19), :nth-child(23))::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Cpolyline points='50,0 100,25 50,50 0,25 50,0' stroke='white' stroke-opacity='0.95' stroke-width='2'/%3E%3Cpolyline points='0,25 50,50 50,100 0,75 0,25' stroke='white' stroke-opacity='0.8' stroke-width='2'/%3E%3Cpolyline points='100,25 50,50 50,100 100,75 100,25' stroke='white' stroke-opacity='0.65' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+@keyframes cube-float {
+  0% {
+    transform: translate3d(0, 0, 0) rotateZ(var(--rot-0));
+  }
+  35% {
+    transform: translate3d(var(--dx-1), var(--dy-1), 0) rotateZ(var(--rot-1));
+  }
+  70% {
+    transform: translate3d(var(--dx-2), var(--dy-2), 0) rotateZ(var(--rot-2));
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateZ(var(--rot-0));
+  }
 }
 
 .screen-block {
@@ -150,7 +490,17 @@ h2 {
     margin-top: 1rem;
   }
 
+  .cube {
+    opacity: 0.65;
+  }
+
   .screen-block {
     padding: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube {
+    animation: none;
   }
 }
