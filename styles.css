@@ -1,11 +1,14 @@
 :root {
   --bg: #000000;
-  --bg-dark: #d3d3d3;
+  --bg-dark: #cccccc;
   --panel: #e1e1e1;
   --text: #090909;
   --accent: #460005;
   --accent-soft: #565656;
   --border: #707070;
+  --screen-bg: #121212;
+  --screen-glow: rgba(220, 220, 220, 0.1);
+  --screen-line: rgba(230, 230, 230, 0.1);
 }
 
 * {
@@ -370,11 +373,77 @@ body {
   margin-bottom: 1rem;
   padding: 1rem 1.2rem;
   box-shadow: 4px 4px 0 var(--accent-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.05) 0,
+      rgba(0, 0, 0, 0.05) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  opacity: 0.65;
+}
+
+.screen-block > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
   text-align: center;
-  padding: 1.6rem 1.2rem;
+  padding: 1.5rem 1.2rem 1.2rem;
+}
+
+.hero-chip {
+  display: inline-block;
+  margin: 0 0 0.7rem;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  border: 2px solid var(--border);
+  background: var(--bg-dark);
+}
+
+.hero-status {
+  margin: 0.9rem auto 0.85rem;
+  max-width: 760px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.hero-status span {
+  border: 2px solid var(--border);
+  background: var(--bg-dark);
+  padding: 0.2rem 0.45rem;
+  font-size: 0.76rem;
+}
+
+.hero-contact {
+  margin: 0;
+  padding: 0.45rem 0.6rem;
+  border: 2px solid var(--border);
+  background: var(--bg-dark);
+  font-size: 0.88rem;
+  word-break: break-word;
+}
+
+.hero-contact span {
+  font-weight: bold;
+}
+
+.hero-contact a {
+  color: var(--accent);
 }
 
 .tag {
@@ -457,7 +526,46 @@ h2 {
 .card {
   border: 2px solid var(--border);
   padding: 0.8rem;
-  background: var(--bg-dark);
+  background: linear-gradient(180deg, #2a2a2a 0%, var(--screen-bg) 52%, #0b0b0b 100%);
+  color: #eeeeee;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(230, 230, 230, 0.12), inset 0 0 12px var(--screen-glow);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 3px,
+    var(--screen-line) 3px,
+    var(--screen-line) 4px
+  );
+  opacity: 0.65;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 25%, rgba(245, 245, 245, 0.08), transparent 70%);
+  opacity: 0.38;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card h3,
+.card strong,
+.card a {
+  color: #fafafa;
 }
 
 .card p {
@@ -487,6 +595,15 @@ h2 {
   .page {
     width: 95%;
     margin-top: 1rem;
+  }
+
+  .hero-status {
+    gap: 0.35rem;
+  }
+
+  .hero-contact {
+    font-size: 0.8rem;
+    line-height: 1.45;
   }
 
   .cube {
